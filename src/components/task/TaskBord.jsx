@@ -42,10 +42,17 @@ const TaskBord = () => {
     setShowAddModal(true);
   };
 
+  // delete task
+  const handleDeleteTask = (taskId) => {
+    setTasks(tasks.filter((task) => task.id !== taskId));
+  };
+
+  // close task modal
   const handleCloseClick = () => {
     setShowAddModal(false);
     setTaskToUpdate(null);
   };
+
   return (
     <section className="mb-20  w-full !bg-[#191D26] text-white" id="tasks">
       {showAddModal && (
@@ -56,7 +63,11 @@ const TaskBord = () => {
         />
       )}
       <AddTask onAddClick={() => setShowAddModal(true)} />
-      <TaskList tasks={tasks} onEdit={handleEditTask} />
+      <TaskList
+        tasks={tasks}
+        onEdit={handleEditTask}
+        onDelete={handleDeleteTask}
+      />
     </section>
   );
 };
