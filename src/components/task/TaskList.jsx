@@ -1,6 +1,22 @@
+import React from "react";
+// Previous
 const TaskList = ({ tasks, onEdit, onDelete }) => {
+  const getPriorityColor = (priority) => {
+    switch (priority) {
+      case "High":
+        return "bg-red-600";
+      case "Medium":
+        return "bg-yellow-600";
+      case "Low":
+        return "bg-green-600";
+      default:
+        return "";
+    }
+  };
+
   return (
-    <div className="container mx-auto overflow-auto ">
+    <div className="container mx-auto overflow-auto mt-5">
+      <h2 className="text-white text-3xl">Total task: {tasks.length}</h2>
       <table className="table-fixed overflow-auto xl:w-full">
         <thead>
           <tr>
@@ -51,7 +67,16 @@ const TaskList = ({ tasks, onEdit, onDelete }) => {
                   ))}
                 </ul>
               </td>
-              <td className="text-center">{task.priority}</td>
+              <td className="flex justify-center">
+                <div
+                  className={`text-center px-3 py-1 rounded-full inline ${getPriorityColor(
+                    task.priority
+                  )}`}
+                >
+                  {task.priority}
+                </div>
+              </td>
+
               <td>
                 <div className="flex items-center justify-center space-x-3">
                   <button

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AddTask from "./AddTask";
 import TaskList from "./TaskList";
 import AddTaskModal from "./AddTaskModal";
+import TaskFilter from "./TaskFilter";
 
 const TaskBord = () => {
   const defaultTask = {
@@ -54,7 +55,7 @@ const TaskBord = () => {
   };
 
   return (
-    <section className="mb-20  w-full !bg-[#191D26] text-white" id="tasks">
+    <section className="w-full h-[44rem]  !bg-[#191D26] text-white" id="tasks">
       {showAddModal && (
         <AddTaskModal
           onSave={handleAddEditTask}
@@ -63,6 +64,7 @@ const TaskBord = () => {
         />
       )}
       <AddTask onAddClick={() => setShowAddModal(true)} />
+      <TaskFilter />
       <TaskList
         tasks={tasks}
         onEdit={handleEditTask}
