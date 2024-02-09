@@ -1,6 +1,4 @@
-import React from "react";
-// Previous
-const TaskList = ({ tasks, onEdit, onDelete }) => {
+const TaskList = ({ tasks, setTasks, onEdit, onDelete }) => {
   const getPriorityColor = (priority) => {
     switch (priority) {
       case "High":
@@ -14,22 +12,41 @@ const TaskList = ({ tasks, onEdit, onDelete }) => {
     }
   };
 
+  const toggleTaskStatus = (taskId) => {
+    setTasks(
+      tasks.map((task) => {
+        if (task.id === taskId) {
+          const updatedTask = { ...task, status: !task.status };
+          if (updatedTask.status) {
+            // If the task status is true, add the green background color class
+            return { ...updatedTask, bgColorClass: "bg-green-900" };
+          } else {
+            // If the task status is false, remove the background color class
+            const { bgColorClass, ...rest } = updatedTask;
+            return rest;
+          }
+        }
+        return task;
+      })
+    );
+  };
+
   return (
     <div className="container mx-auto overflow-auto mt-5">
       <h2 className="text-white text-3xl">Total task: {tasks.length}</h2>
       <table className="table-fixed overflow-auto xl:w-full">
         <thead>
           <tr>
-            <th className="p-4 pb-8 text-sm font-semibold capitalize w-[48px]"></th>
-            <th className="p-4 pb-8 text-sm font-semibold capitalize w-[300px]">
+            <th className="p-4 pb-8 text-sm font-semibold capitalize w-[24px] md:w-[48px]"></th>
+            <th className="p-4 pb-8 text-sm font-semibold capitalize w-[150px] md:w-[250px]">
               {" "}
               Title{" "}
             </th>
-            <th className="p-4 pb-8 text-sm font-semibold capitalize w-full">
+            <th className="p-4 pb-8 text-sm font-semibold capitalize w-[150px] md:w-[250px]">
               {" "}
               Description{" "}
             </th>
-            <th className="p-4 pb-8 text-sm font-semibold capitalize md:w-[350px]">
+            <th className="p-4 pb-8 text-sm font-semibold capitalize w-[150px] md:w-[350px] truncate">
               {" "}
               Tags{" "}
             </th>
@@ -37,6 +54,7 @@ const TaskList = ({ tasks, onEdit, onDelete }) => {
               {" "}
               Priority{" "}
             </th>
+
             <th className="p-4 pb-8 text-sm font-semibold capitalize md:w-[100px]">
               {" "}
               Options{" "}
@@ -47,10 +65,17 @@ const TaskList = ({ tasks, onEdit, onDelete }) => {
           {tasks.map((task) => (
             <tr
               key={task.id}
-              className="border-b border-[#2E3443] [&>td]:align-baseline [&>td]:px-4 [&>td]:py-2"
+              className={`border-b border-[#2E3443] [&>td]:align-baseline [&>td]:px-4 [&>td]:py-2 ${
+                task.bgColorClass || ""
+              }`}
             >
               <td>
-                <input className="border-2 border-sky-400" type="checkbox" />
+                <input
+                  className="border-2 border-sky-400"
+                  type="checkbox"
+                  checked={task.status}
+                  onChange={() => toggleTaskStatus(task.id)}
+                />
               </td>
               <td>{task.title}</td>
               <td>

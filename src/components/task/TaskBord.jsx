@@ -8,23 +8,32 @@ const TaskBord = () => {
   const defaultTask = {
     id: crypto.randomUUID(),
     title: "Learn React Native",
-    description:
-      "I want to Learn React such thanI can treat it like my slave and make it do whatever I want to do.",
+    description: "I want to Learn React such thanI can treat it.",
     tags: ["web", "react", "js"],
     priority: "High",
-    isFavorite: true,
+    status: false,
   };
 
   const [showAddModal, setShowAddModal] = useState(false);
   const [tasks, setTasks] = useState([defaultTask]);
   const [taskToUpdate, setTaskToUpdate] = useState(null);
+  const [filteredTasks, setFilteredTasks] = useState(tasks);
 
   // add task modal show and edit handler
   const handleAddEditTask = (newTask, isAdd) => {
     if (isAdd) {
       setTasks([...tasks, newTask]);
+      setFilteredTasks([...tasks, newTask]);
     } else {
       setTasks(
+        tasks.map((task) => {
+          if (task.id === newTask.id) {
+            return newTask;
+          }
+          return task;
+        })
+      );
+      setFilteredTasks(
         tasks.map((task) => {
           if (task.id === newTask.id) {
             return newTask;
@@ -46,12 +55,22 @@ const TaskBord = () => {
   // delete task
   const handleDeleteTask = (taskId) => {
     setTasks(tasks.filter((task) => task.id !== taskId));
+    setFilteredTasks(tasks.filter((task) => task.id !== taskId));
   };
 
   // close task modal
   const handleCloseClick = () => {
     setShowAddModal(false);
     setTaskToUpdate(null);
+  };
+
+  // filter tasks by priority
+  const filterTasksByPriority = (priority) => {
+    if (priority === "All") {
+      setFilteredTasks(tasks);
+    } else {
+      setFilteredTasks(tasks.filter((task) => task.priority === priority));
+    }
   };
 
   return (
@@ -64,9 +83,10 @@ const TaskBord = () => {
         />
       )}
       <AddTask onAddClick={() => setShowAddModal(true)} />
-      <TaskFilter />
+      <TaskFilter onFilter={filterTasksByPriority} />
       <TaskList
-        tasks={tasks}
+        tasks={filteredTasks}
+        setTasks={setTasks}
         onEdit={handleEditTask}
         onDelete={handleDeleteTask}
       />

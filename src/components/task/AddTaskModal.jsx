@@ -8,6 +8,7 @@ const AddTaskModal = ({ onSave, taskToUpdate, onCloseClick }) => {
       description: "",
       tags: [],
       priority: "",
+      status: true,
     }
   );
 
