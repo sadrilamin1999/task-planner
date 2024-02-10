@@ -1,6 +1,6 @@
 # Task Planner
 
-Task Planner is a recipe todo application built using React and Tailwind CSS. It allows users to manage their tasks efficiently by providing features such as adding, editing, updating, and deleting todos. Additionally, users can filter their todos based on their priority levels.
+Task Planner is a todo application built using React and Tailwind CSS. It allows users to manage their tasks efficiently by providing features such as adding, editing, updating, and deleting todos. Additionally, users can filter their todos based on their priority levels.
 
 # Project Features
 
