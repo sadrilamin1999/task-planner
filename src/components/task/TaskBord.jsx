@@ -7,7 +7,7 @@ import TaskFilter from "./TaskFilter";
 const TaskBord = () => {
   const defaultTask = {
     id: crypto.randomUUID(),
-    title: "Learn React Native",
+    title: "Learn React",
     description: "I want to Learn React such thanI can treat it.",
     tags: ["web", "react", "js"],
     priority: "High",
