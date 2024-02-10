@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+# Task Planner
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Task Planner is a recipe todo application built using React and Tailwind CSS. It allows users to manage their tasks efficiently by providing features such as adding, editing, updating, and deleting todos. Additionally, users can filter their todos based on their priority levels.
 
-## Available Scripts
+# Project Features
 
-In the project directory, you can run:
+- Add new todos: Users can add new tasks to their list by providing a title, description, tags, and priority level.
+- Edit todos: Users can edit existing todos to update their title, description, tags, and priority level.
+- Update todos: Users can mark todos as complete or incomplete.
+- Delete todos: Users can delete unwanted todos from their list.
+- Filter todos: Users can filter their todos based on priority levels such as High, Medium, and Low.
 
-### `npm start`
+## Tools
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The project is built using the following technologies:
+- React A JavaScript library for building user interfaces.
+- Tailwind CSS: A utility-first CSS framework for creating custom designs quickly.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+To run the project locally, follow these steps:
+1. Clone the repository: `https://github.com/sadrilamin1999/task-planner.git`
+2. Navigate to the project directory: `cd project name`
+3. Install dependencies: `npm install`
+4. Start the development server: `npm run start`
+5. Open your browser and visit `http://localhost:3000` to view the application.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Live link: `https://sadrilamin-task-planner.netlify.app/`
+## Conclusion
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Task Planner provides a simple and intuitive interface for managing tasks effectively. With features like adding, editing, updating, deleting, and filtering todos, users can stay organized and focused on their daily tasks. By leveraging the power of React and Tailwind CSS, the application offers a seamless user experience while maintaining a modern and responsive design.
